@@ -1,0 +1,20 @@
+<ul>
+  {{#each burgers}}
+   <li>
+    <p>
+      {{this.id}}. {{this.burgerName}}
+      <button data-burgerid="{{this.id}}" class="devourIt">Devour It</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+<h2>Enter your burger</h2>
+<form id = "eatBurger" class="button-size">
+  <textarea type="text" name="burger"></textarea>
+  <button type="submit">Enter your choice of burger</button> 
+</form> 
+
+<script src = "/assets/js/burger.js"></script>
+
+
+
