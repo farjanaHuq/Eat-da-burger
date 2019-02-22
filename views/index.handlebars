@@ -1,26 +1,71 @@
 <div class = "container">
   <div class="row">
-     <div class="col-md-6">
-        <ul>
-          {{#each burgers}}
-          <li>
-            <p>
-              {{this.id}}. {{this.burger_name}} 
-              <button data-burgerid="{{this.id}}" class="devourIt">Devour It</button>
-            </p>
-          </li>
-          {{/each}}
-        </ul>
-        <h2>Enter your burger</h2>
-        <form id = "eatBurger" class="button-size">
-          <textarea type="text" name="burger"></textarea>
-          <button type="submit">Enter your choice of burger</button> 
-        </form> 
-   </div>
-
-   <div class="col-md-6" id= "devouredBurger">
-       <h2>Devour it here!</h2>
+      <div class="col-md-4">
+          {{!-- <ul>
+            {{#each burgers}}
+            {{!-- <li>
+              <p>
+                {{this.id}}
+                {{!-- . {{this.burger_name}}  --}}
+                {{!-- {{!-- <button data-burgerid="{{this.id}}" data-burgerName = "{{this.burger_name}}
+                {{!-- " class="devourIt">Devour It</button> --}} 
+              {{!-- </p>
+            </li> --}} 
+            {{!-- {{/each}}
+          {{!-- </ul> --}} 
+          <h2>Enter your burger</h2>
+          <form id = "eatBurger" class="button-size">
+            <textarea type="text" name="burger"></textarea>
+            <button type="submit">Submit</button> 
+            <p>Enter your choice of burger, then click the 'Submit' button</p>
+          </form> 
     </div>
+
+      <div class="col-md-4">
+
+         <div class="card main-panel">
+            <div class="card-header">
+               <h2>Your Burgers</h2>
+            </div>
+            <div class="card-body" id="tasty-burgers-body">
+               {{#each burgers}}
+               {{#unless devoured}}
+               <div class="card burger-card">
+                  <div class="card-header">
+                     <span>{{this.burger_name}}</span>
+                  </div>
+                  <div class="card-body">
+                     <button class="devour-btn btn btn-primary" data-id="{{this.id}}">Devour it!</button>
+                  </div>
+               </div>
+               {{/unless}}
+               {{/each}}
+            </div>
+         </div>
+      </div>
+
+      <div class="col-md-4">
+
+         <div class="card main-panel">
+            <div class="card-header">
+               <h2>Eaten Burgers</h2>
+            </div>
+            <div class="card-body" id="eaten-burgers-body">
+               {{#each burgers}}
+               {{#if devoured}}
+               <div class="card burger-card">
+                  <div class="card-header">
+                     <span>{{this.burger_name}}</span>
+                  </div>
+                  <div class="card-body">
+                     <button class="discard-btn btn btn-primary" data-id="{{this.id}}">Discard trash</button>
+                  </div>
+               </div>
+               {{/if}}
+               {{/each}}
+            </div>
+         </div>
+      </div>
   </div>
 
 </div>
