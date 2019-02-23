@@ -1,49 +1,69 @@
 <div class = "container">
-  <div class="row">
-      <div class="col-md-6">
-          <ul>
-          {{#each burgers}}
-              {{#unless devoured}}
-                <li>
-                  <p>
-                    {{this.burger_name}}
-                    <button data-burgerid="{{this.id}}" class="devourIt">Devour It</button> 
-                    </p>
-                </li>  
-             {{/unless}}
-          {{/each}}
-          </ul> 
-          <h2>Enter your burger</h2>
-          <form id = "eatBurger" class="button-size">
-            <textarea type="text" name="burgerName"></textarea>
-            <button type="submit">Submit</button> 
-            <p>Enter your choice of burger, then click the 'Submit' button</p>
-          </form> 
-    </div>
 
-    <div class="col-md-6">
-        <div class="card main-panel">
-            <div class="card-header">
-               <h2>Eaten Burgers</h2>
-            </div>
-            <div class="card-body" id="eaten-burgers-body">
-               {{#each burgers}}
-                  {{#if devoured}}
-                    <div class="card burger-card">
-                        <div class="card-header">
-                          <span>{{this.burger_name}}</span>
-                        </div>
-                        <div class="card-body">
-                          <button class="discardIt-btn btn btn-primary" data-id="{{this.id}}">Discard trash</button>
-                        </div>
+        <div class="row" id = "burgerImg">
+          <div class="col-md-12" >
+                <img src="/assets/img/burger.png" alt="" height="200" width="300">
+          </div> 
+        </div>
+        <div class="row" id = "enterBurger">
+              <div class="col-md-12" >
+                  
+                  <h2>Eat-Da-Burger</h2>
+                  <form id = "eatBurger" class="button-size">
+                    <textarea type="text" name="burgerName" id = "textArea"></textarea>
+                    <br>
+                    <button class="btn btn-primary" type="submit">Submit</button> 
+                    <p>Enter your choice of burger, then click the 'Submit' button</p>
+                  </form> 
+              </div>
+        </div> 
+        <br>
+        <div class="row"  id="burgerDisplay">
+              <div class="col-md-2"></div>
+              <div class="col-md-4" >
+                <div class="card main-panel" >
+                    <div class="card-header" >
+                      <h3 style="font-size:14px, font-weight:bold">Your Burgers</h3>
                     </div>
-                  {{/if}}
-               {{/each}}
+                    <div class="card-body" id= "yourBurger">
+                      {{#each burgers}}
+                      {{#unless devoured}}
+                      <div class="card burger-card" style="font-size:14px, font-weight:bold">
+                          <div class="card-header" id="yourBurger">
+                            <span >{{this.burger_name}}</span>
+                            <button class="devourIt btn btn-primary" data-id="{{this.id}}">Devour it!</button>
+                          </div>
+                      </div>
+                      {{/unless}}
+                      {{/each}}
+                    </div>
+                </div>
+          </div>
+         
+          <div class="col-md-4">
+              <div class="card main-panel" >
+                  <div class="card-header" >
+                    <h3 style="font-size:14px, font-weight:bold">Devoured Burgers</h3>
+                  </div>
+                  <div class="card-body" id="devouredBurger">
+                    {{#each burgers}}
+                        {{#if devoured}}
+                          <div class="card burger-card">
+                              <div class="card-header">
+                                <span>{{this.burger_name}}</span>
+                              </div>
+                              <div class="card-body">
+                                <button class="cleanUp btn btn-primary" data-id="{{this.id}}">Clean up!</button>
+                              </div>
+                          </div>
+                        {{/if}}
+                    {{/each}}
+                  </div>
+              </div>
             </div>
-         </div>
-      </div>
-  </div>
-
+            <div class="col-md-2"></div>
+        </div>
+    </div>       
 </div>
 
 

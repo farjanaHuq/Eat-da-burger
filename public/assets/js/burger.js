@@ -25,9 +25,9 @@ $( document ).ready(function() {
 
   $(".devourIt").on("click", function(e){
        e.preventDefault();
-       var id = $(this).data("burgerid");
+       var id = $(this).data("id");
        var newDevourState = {
-         devoured : true
+         devoured : false
        }
        $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -41,10 +41,10 @@ $( document ).ready(function() {
       );
   });
 
-  $(".discardIt-btn").on("click", function(e){
+  $(".cleanUp").on("click", function(e){
        e.preventDefault();
        var id = $(this).data("id");
-    
+       
       $.ajax("/api/burgers/" + id, {
         type: "DELETE"
       }).then(
