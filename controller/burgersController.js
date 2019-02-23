@@ -9,8 +9,8 @@ console.log("Model is connected to the router.");
 //=======================================Routes==========================================
 // ------------------- html route(s) --------------------
 router.get("/", function (req, res) {
-  burger.all(function (data) {
-    res.render("index", {burgers : data});
+  burger.all(function (result) {
+    res.render("index", {burgers : result});
   });
 });
 
@@ -23,7 +23,7 @@ router.get("/api/burgers", function (req, res) {
 });
 
 router.post("/api/burgers", function (req, res) {
-  burger.create([ "burger_name","devoured"], [req.body.burger_name, req.body.devoured], function (result) {
+  burger.create("burger_name", req.body.burger_name, function (result) {
       res.json({burgers : result});
     });
 });
