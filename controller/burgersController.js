@@ -32,7 +32,9 @@ router.post("/api/burgers", function (req, res) {
 router.put("/api/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition : ", condition);
-    burger.update(condition, function (result) {
+    burger.update({
+      devoured: 1
+    },condition, function (result) {
           if (result.changedRows == 0) {
             return res.status(500).end();
           } 
@@ -40,7 +42,7 @@ router.put("/api/burgers/:id", function (req, res) {
           res.status(200).end();
           }
           console.log({burgers : result});
-          res.json({burgers : result});
+          // res.json({burgers : result});
       });
 });
 
@@ -54,7 +56,7 @@ router.delete("/api/burgers/:id", function (req, res) {
     else {
       res.status(200).end();
     }
-    res.json({burgers : result});
+    //res.json({burgers : result});
   });
 });
 

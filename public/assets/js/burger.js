@@ -26,12 +26,9 @@ $( document ).ready(function() {
   $(".devourIt").on("click", function(e){
        e.preventDefault();
        var id = $(this).data("id");
-       var newDevourState = {
-         devoured : false
-       }
+     
        $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        body: newDevourState
+        type: "PUT"
       }).then(
         function() { 
           console.log("Devoured burger's id:", id);
