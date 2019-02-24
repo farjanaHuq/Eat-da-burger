@@ -13,13 +13,15 @@
 
 #enterBurger{
    margin-top: 30px;
+   font-weight: bold;
 }
 #textArea{
     background-color:aliceblue;
     border-radius: 1px;
 }
-.yourBurger, .devouredBurger{
-    background-color: gray;
+#yourBurger-body, #devouredBurger-body{
+    /* background-color: gray; */
+    font-size: 14px;
 }
 .devourIt, .cleanUp{
     margin-left: 20px; 

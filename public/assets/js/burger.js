@@ -22,7 +22,7 @@ $( document ).ready(function() {
     } );
 
   });
-
+  //Update database
   $(".devourIt").on("click", function(e){
        e.preventDefault();
        var id = $(this).data("id");
@@ -37,7 +37,7 @@ $( document ).ready(function() {
         }
       );
   });
-
+  //Delete from database
   $(".cleanUp").on("click", function(e){
        e.preventDefault();
        var id = $(this).data("id");
