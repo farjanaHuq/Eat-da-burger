@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-var burger = require("../models/burger");
+var burger = require("../models/burger.js");
 
 console.log("Model is connected to the router.");
 
